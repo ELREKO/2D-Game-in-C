@@ -7,9 +7,14 @@ SRC_PATH = src/
 OBJ_PATH = obj/
 
 SRC  = 	errorhandling.c \
+	get_next_line.c \
 	main.c \
-	maps_read.c \
-	utiles_1.c 
+	maps_1_read.c \
+	maps_2_checking.c \
+	maps_100_utiles.c \
+	utiles_1.c \
+	utiles_2.c \
+	utiles_3.c
 
 SRCS	= $(addprefix $(SRC_PATH), $(SRC))
 OBJ		= $(SRC:.c=.o)

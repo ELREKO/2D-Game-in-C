@@ -1,7 +1,5 @@
 # include "../include/so_long.h"
 
-static void ft_load_map(char *filename);
-
 int main(int argc, char **arg) 
 { 
     if (argc < 2)
@@ -13,14 +11,4 @@ int main(int argc, char **arg)
     return (0); 
 }
 
-static void ft_load_map(char *filename)
-{
-    int file_discripter;
-
-    file_discripter = ft_open_maps(filename);
-    printf("File Discripter %i\n", file_discripter);
-    ft_close_map (file_discripter);
-
-    return ;
-}
 

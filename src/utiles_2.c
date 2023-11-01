@@ -3,8 +3,8 @@
 char	*ft_strjoin(char *str1, char *str2)
 {
 	char	*str_ret;
-	size_t	i_count_str1;
-	size_t	i_count_str2;
+	unsigned int i_count_str1;
+	unsigned int i_count_str2;
 
 	if (!str1)
 	{
@@ -15,7 +15,7 @@ char	*ft_strjoin(char *str1, char *str2)
 	}
 	str_ret = malloc(sizeof(char) * ft_strlen(str1) + ft_strlen(str2) + 1);
 	if (!str_ret)
-		return (ft_free(&str1));
+		return (ft_free_str(&str1));
 	i_count_str1 = -1;
 	while (str1[++i_count_str1])
 		str_ret[i_count_str1] = str1[i_count_str1];
@@ -27,9 +27,9 @@ char	*ft_strjoin(char *str1, char *str2)
 	return (str_ret);
 }
 
-size_t	ft_strlen(char *str)
+unsigned int	ft_strlen(char *str)
 {
-	size_t	i_count;
+	unsigned int	i_count;
 
 	i_count = 0;
 	if (!str)
@@ -55,9 +55,9 @@ char	*ft_chrinstr(char *str, int chr)
 	return (0);
 }
 
-char	*ft_substr(char *storage, unsigned int start, size_t len)
+char	*ft_substr(char *storage, unsigned int start, unsigned int len)
 {
-	size_t	i_count;
+	unsigned int 	i_count;
 	char	*str_ret;
 
 	i_count = 0;
@@ -78,6 +78,6 @@ char	*ft_substr(char *storage, unsigned int start, size_t len)
 		return (NULL);
 	while (start < ft_strlen(storage) && i_count < len && storage[start])
 		str_ret[i_count++] = storage[start++];
-	str_ret[i_count] = '\0';
+	str_ret[i_count - 1] = '\0';
 	return (str_ret);
 }
