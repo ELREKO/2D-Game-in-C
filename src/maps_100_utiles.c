@@ -14,6 +14,10 @@ t_lay *ft_creat_map_set_size(int file_discripter)
     str_line = get_next_line(file_discripter);
     map->i_x = ft_strlen(str_line);
     map->i_y = 0;
+    map->i_pl = 0;
+    map->i_exit = 0;
+    map->i_collect = 0;
+    map->map = NULL;
     while (str_line != NULL)
     {
         free(str_line);
@@ -21,15 +25,17 @@ t_lay *ft_creat_map_set_size(int file_discripter)
         str_line = get_next_line(file_discripter);
         if ((str_line != NULL) && (map->i_x != ft_strlen(str_line)))
         {
-            //printf ("y %i -- x %i -- %i -- %s\n", map->i_y, map->i_x, ft_strlen(str_line), str_line);
             ft_free_str(&str_line);
             ft_throw_map_error(&map, 30);
         }
         map->i_y = map->i_y + 1;
     }
+
     ft_free_str(&str_line);
     return (map);
 }
+
+
 
 void ft_read_map_sruct(int file_discripter, t_lay **map)
 {
@@ -72,19 +78,4 @@ void ft_print_out_map(t_lay *map)
     printf("Mapp Printing given Map\n\n");
     while (map->map[i_count] != NULL)
         printf("%s\n", map->map[i_count++]);
-}
-
-void ft_free_map_struct(t_lay **map)
-{
-    int i_count = 0;
-    while ((*map)->map[i_count] != NULL)
-    {
-        free((*map)->map[i_count]);
-        (*map)->map[i_count] = NULL;
-        i_count++;
-    }
-    free((*map)->map);
-    (*map)->map = NULL;
-    free((*map));
-    map = NULL;
 }

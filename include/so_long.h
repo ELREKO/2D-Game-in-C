@@ -21,20 +21,19 @@ typedef struct s_lay
 	unsigned int i_y;
 	int	i_exit;
 	int	i_pl;
-	int	i_gh;
 	int	i_collect;
 }	t_lay;
 
 typedef struct s_position
 {
-	int	x;
-	int	y;
+	unsigned int	x;
+	unsigned int	y;
 }	t_positon;
 
 // errorhandling.c
 void ft_throw_error (char *str);
 void ft_throw_map_error(t_lay **map, int err_num);
-void ft_throw_map_error_open_wall(t_lay **map, int err_num);
+void ft_free_map_struct(t_lay **map);
 
 // ft_printf_1.c
 int	ft_printf(char *format, ...);
@@ -56,14 +55,17 @@ char	*get_next_line(int fd);
 // maps_1_read.c
 t_lay *ft_load_map(char *filename);
 
-// maps_2_check_wall.c
-int ft_map_controll_wall(t_lay **map);
+// maps_2_check_map.c
+int ft_map_controll(t_lay **map);
+
+// maps_3_check_playabell.c
+t_positon *ft_check_payable(t_lay **map);
 
 // maps_100_utiles.c
 t_lay *ft_creat_map_set_size(int file_discripter);
 void ft_read_map_sruct(int file_discripter, t_lay **map);
 void ft_print_out_map(t_lay *map);
-void ft_free_map_struct(t_lay **map);
+
 
 // utiles_1.c
 void ft_putchar(char ch);

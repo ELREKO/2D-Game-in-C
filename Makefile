@@ -10,7 +10,8 @@ SRC  = 	errorhandling.c \
 	get_next_line.c \
 	main.c \
 	maps_1_read.c \
-	maps_2_check_wall.c \
+	maps_2_check_map.c \
+	maps_3_check_playable.c \
 	maps_100_utiles.c \
 	utiles_1.c \
 	utiles_2.c \
