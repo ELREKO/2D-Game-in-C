@@ -31,19 +31,60 @@ t_lay *ft_creat_map_set_size(int file_discripter)
     return (map);
 }
 
-// void ft_read_map_sruct(int file_discripter, t_lay **map)
-// {
-//     char *str_line;
-//     int i_cont;
+void ft_read_map_sruct(int file_discripter, t_lay **map)
+{
+    char *str_line;
+    unsigned int i_count;
    
-    
-//     (*map)->map = malloc(sizeof(char *) * ((*map)->i_y + 1));
-//     if (!((*map)->map))
-//         ft_throw_map_error(map, 20);
-//     i_cont = 0;
+    // Creating **Map ! 
+    (*map)->map = malloc(sizeof(char *) * ((*map)->i_y + 1));
+    if (!((*map)->map))
+        ft_throw_map_error(map, 20);
+    (*map)->map[(*map)->i_y] = NULL;
+    i_count = 0;
+    while (i_count < (*map)->i_y)
+    {
+        (*map)->map[i_count] = malloc(sizeof(char) * ((*map)->i_x + 1));
+        i_count++;
+    }
+    str_line = get_next_line(file_discripter);
+    i_count = 0;
+    while (str_line != NULL)
+    {
+        if (str_line != NULL)
+        {
+            (*map)->map[i_count] = ft_strcpy((*map)->map[i_count], str_line);
+            if (!((*map)->map[i_count]))
+                ft_throw_map_error(map, 20);
+        }
+        //printf("\n\nI COUNT is %i -- map[iYactu] = |%s| imap[count] %s \n\n", i_count,(*map)->map[i_count] ,(*map)->map[(*map)->i_y]);
+        free(str_line);
+        str_line = get_next_line(file_discripter);
+        i_count++;
+    }
+    free(str_line);
+    str_line = NULL;
+}
 
-//     while (str_line != NULL)
-//     {
-//         str_line = get_next_line(file_discripter);
-//     }
-// }
+void ft_print_out_map(t_lay *map)
+{
+    int i_count = 0;
+    printf("Mapp Printing given Map\n\n");
+    while (map->map[i_count] != NULL)
+        printf("%s\n", map->map[i_count++]);
+}
+
+void ft_free_map_struct(t_lay **map)
+{
+    int i_count = 0;
+    while ((*map)->map[i_count] != NULL)
+    {
+        free((*map)->map[i_count]);
+        (*map)->map[i_count] = NULL;
+        i_count++;
+    }
+    free((*map)->map);
+    (*map)->map = NULL;
+    free((*map));
+    map = NULL;
+}

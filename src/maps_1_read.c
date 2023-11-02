@@ -8,7 +8,7 @@ static void ft_close_map (int file_discripter);
 // Open Count X and Y of the map Close 
 // Open read the map
 // Check the map 
-void ft_load_map(char *filename)
+t_lay *ft_load_map(char *filename)
 {   
     t_lay *map;
     int file_discripter;
@@ -16,10 +16,13 @@ void ft_load_map(char *filename)
     file_discripter = ft_open_maps(filename);
     map = ft_creat_map_set_size(file_discripter);
     ft_close_map (file_discripter);
+    
 
-    free(map);
-    map = NULL;
-    return ;
+    file_discripter = ft_open_maps(filename);
+    ft_read_map_sruct(file_discripter, &map);
+    ft_close_map (file_discripter);
+
+    return (map) ;
 }
 
 static int ft_open_maps(char *filename)

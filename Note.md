@@ -1,6 +1,5 @@
 # ToDo 
 
 // Wochenziel! 
---> Weiter mit dem Einlesen der Mape in die Struckt t_lay **map!
---> Cechekcing ab ein Player mindestens ein Collect ein exit git 
+--> Cechekcing ab ein Player mindestens ein Collect ein exit;
 --> Checking ob Player ab Spielbar 

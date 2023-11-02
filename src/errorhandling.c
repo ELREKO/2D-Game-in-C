@@ -20,3 +20,12 @@ void ft_throw_map_error(t_lay **map, int err_num)
       ft_throw_error("!!!THROW A MAP ERROR WITHOUT A CORRECT NUMMBER!!!");
 }
 
+void ft_throw_map_error_open_wall(t_lay **map, int err_num)
+{
+   ft_free_map_struct(map);
+   if (err_num == 100)
+   {
+      ft_throw_error("ERROR : Wall is open\n");
+   }
+}
+
