@@ -24,5 +24,4 @@ int main (void)
 }
 
 // Compliling 
-// gcc src/0_intro.c 
-//-Lminilibx-linux -lmlx_Linux -lX11 -lXext
+// gcc src/0_intro.c -Lminilibx-linux -lmlx_Linux -lX11 -lXext

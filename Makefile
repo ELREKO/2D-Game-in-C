@@ -22,7 +22,7 @@ SRCS	= $(addprefix $(SRC_PATH), $(SRC))
 OBJ		= $(SRC:.c=.o)
 OBJS	= $(addprefix $(OBJ_PATH), $(OBJ))
 INCS	= -I ./includes/
-LIB		= -Lminilibx-linux -lmlx_Linux -lX11 -lXext
+LIB		= -Lminilibx-linux -lmlx_Linux -lX11 -lXext -lm -L..
 
 all: $(OBJ_PATH) $(NAME)
 
