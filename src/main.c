@@ -23,13 +23,14 @@ static void progamm_struckt (char *filename)
     printf(" BEFOR \n x=|%u|, y=|%u|, pl=|%i| ex=|%i| col=|%i|\n", map->i_x , map->i_y, map->i_pl,map->i_exit, map->i_collect);
 
     player_pos = ft_check_payable(&map);
-    
+    ft_window_setting(&player_pos, &map);
 
-    printf("AFTER \n x=|%u|, y=|%u|, pl=|%i| ex=|%i| col=|%i|\n", map->i_x , map->i_y, map->i_pl,map->i_exit, map->i_collect);
-    printf("pos X = |%i| pos Y = |%i| \n", player_pos->x, player_pos->y);
-    ft_print_out_map(map);
 
+    // printf("AFTER \n x=|%u|, y=|%u|, pl=|%i| ex=|%i| col=|%i|\n", map->i_x , map->i_y, map->i_pl,map->i_exit, map->i_collect);
+    // printf("pos X = |%i| pos Y = |%i| \n", player_pos->x, player_pos->y);
+    // ft_print_out_map(map);
     free(player_pos);
     ft_free_map_struct(&map);
+ 
 }
 

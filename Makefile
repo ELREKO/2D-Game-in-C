@@ -1,7 +1,7 @@
 NAME	= so_long
 
 CC		= cc
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra 
 
 SRC_PATH = src/
 OBJ_PATH = obj/
@@ -15,7 +15,8 @@ SRC  = 	errorhandling.c \
 	maps_100_utiles.c \
 	utiles_1.c \
 	utiles_2.c \
-	utiles_3.c
+	utiles_3.c \
+	window_1_setting.c 
 
 SRCS	= $(addprefix $(SRC_PATH), $(SRC))
 OBJ		= $(SRC:.c=.o)

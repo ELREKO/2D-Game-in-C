@@ -1,5 +1,5 @@
 #include "../minilibx-linux/mlx.h"
-#include <X11/keysym.h>
+
 #include <stdlib.h>
 #include <stdio.h>
 

@@ -2,6 +2,7 @@
 # define SO_LONG_H
 
 # include "../minilibx-linux/mlx.h"
+#include <X11/keysym.h>
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
@@ -29,6 +30,12 @@ typedef struct s_position
 	unsigned int	x;
 	unsigned int	y;
 }	t_positon;
+
+typedef struct s_mlx_data
+{
+    void	*mlx_ptr;
+    void	*win_ptr;
+}               t_mlx_data;
 
 // errorhandling.c
 void ft_throw_error (char *str);
@@ -81,6 +88,9 @@ char	*ft_substr(char *storage, unsigned int start, unsigned int len);
 
 // utiles_3.c 
 char	*ft_free_str(char **str);
+
+// window_1_setting.c 
+int ft_window_setting(t_positon **pos, t_lay **map);
 
 
 #endif
