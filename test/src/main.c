@@ -358,18 +358,5 @@ int	main()
   mlx_loop(data->mlx);
 }
 
-Hello, I don't understand the given library, could it be that these have errors? I shortened the test included in the library so that it only shows me a window with 2 images.
-
-...SRC
-
-If I change the name of the *.xpm an error occurs. It only seems to accept the name `open.xpm`.
-
-Furthermore, even if I have a different image and it hasn't even been named `open.xpm`, it brings me a different image.
-
-Pic
-
-The fish that were originally saved under the name `open.xpm`.
-
-pic
 
 
