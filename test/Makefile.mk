@@ -7,7 +7,7 @@ INCLIB=$(INC)/../lib
 
 UNAME := $(shell uname)
 
-CFLAGS= -I$(INC) -O3 -I.. -g
+CFLAGS= -I$(INC) -O3 -I.. -g -Wall -Wextra
 
 SRC_PATH = src/
 SRC = main.c
@@ -28,7 +28,7 @@ else ifeq ($(UNAME), FreeBSD)
 	CC = clang
 else
 	#Linux and others...
-	CC	= gcc
+	CC	= cc
 	LFLAGS += -lbsd
 endif
 

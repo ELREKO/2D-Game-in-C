@@ -347,16 +347,29 @@ int	main()
 
   printf(" => Xpm from file ...");
   if (!(data->im2 = mlx_xpm_file_to_image(data->mlx,"../img/open.xpm",&data->xpm1_x,&data->xpm1_y)))
-    {
+  {
       printf(" !! KO !!\n");
       exit(1);
-    }
+  }
 
-
-  mlx_put_image_to_window(data->mlx,data->win1,data->im2,50,100);
+  mlx_put_image_to_window(data->mlx,data->win1,data->im2,10,100);
   mlx_put_image_to_window(data->mlx,data->win1,data->im2,150,200);
  
   mlx_loop(data->mlx);
 }
+
+Hello, I don't understand the given library, could it be that these have errors? I shortened the test included in the library so that it only shows me a window with 2 images.
+
+...SRC
+
+If I change the name of the *.xpm an error occurs. It only seems to accept the name `open.xpm`.
+
+Furthermore, even if I have a different image and it hasn't even been named `open.xpm`, it brings me a different image.
+
+Pic
+
+The fish that were originally saved under the name `open.xpm`.
+
+pic
 
 
