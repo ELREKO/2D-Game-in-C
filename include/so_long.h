@@ -1,7 +1,10 @@
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
-# include "../minilibx-linux/mlx.h"
+
+# include <X11/X.h>
+# include "../mlx/mlx.h"
+# include "../mlx/mlx_int.h"
 #include <X11/keysym.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -72,6 +75,7 @@ t_positon *ft_check_payable(t_lay **map);
 t_lay *ft_creat_map_set_size(int file_discripter);
 void ft_read_map_sruct(int file_discripter, t_lay **map);
 void ft_print_out_map(t_lay *map);
+t_lay *copy_t_lay (t_lay *src);
 
 
 // utiles_1.c
@@ -90,7 +94,7 @@ char	*ft_substr(char *storage, unsigned int start, unsigned int len);
 char	*ft_free_str(char **str);
 
 // window_1_setting.c 
-int ft_window_setting(t_positon **pos, t_lay **map);
+int ft_window_setting(void);
 
 
 #endif

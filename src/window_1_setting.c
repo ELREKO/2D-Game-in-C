@@ -7,7 +7,7 @@ static int ft_close_window(t_mlx_data *data);
 #define WIDTH           400
 #define HEIGHT          400
 
-int ft_window_setting(t_positon **pos, t_lay **map)
+int ft_window_setting(void)
 {
 
     t_mlx_data	data;

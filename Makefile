@@ -1,7 +1,11 @@
 NAME	= so_long
 
-CC		= cc
-CFLAGS	= -Wall -Wextra 
+INC=%%%%
+
+INCLIB=$(INC)/lib
+
+CC		= gcc
+CFLAGS	= -Wall -Wextra -I$(INC) -O3 -I -g
 
 SRC_PATH = src/
 OBJ_PATH = obj/
@@ -22,7 +26,8 @@ SRCS	= $(addprefix $(SRC_PATH), $(SRC))
 OBJ		= $(SRC:.c=.o)
 OBJS	= $(addprefix $(OBJ_PATH), $(OBJ))
 INCS	= -I ./includes/
-LIB		= -Lminilibx-linux -lmlx_Linux -lX11 -lXext -lm -L..
+LIB		= -Lmlx -lmlx -L../$(INCLIB) -lXext -lX11 -lm
+
 
 all: $(OBJ_PATH) $(NAME)
 

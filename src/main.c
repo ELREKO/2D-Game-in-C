@@ -63,6 +63,7 @@ int	main()
       exit(1);
     }
 
+
   mlx_put_image_to_window(mlx,win1,im2,100,100);
   mlx_put_image_to_window(mlx,win1,im2,150,150);
  
