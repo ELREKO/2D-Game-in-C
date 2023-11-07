@@ -27,6 +27,8 @@ void ft_throw_map_error(t_lay **map, int err_num)
       ft_throw_error("ERROR : Player more than 1\n");
    else if (err_num == 250)
       ft_throw_error("ERROR : Exit more than 1\n");
+   else if (err_num == 300)
+      ft_throw_error("ERROR : Not playable code not reach all collects or the exit\n");
    else
       ft_throw_error("!!!THROW A MAP ERROR WITHOUT A CORRECT NUMMBER!!!");
 }

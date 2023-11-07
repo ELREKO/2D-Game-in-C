@@ -2,8 +2,12 @@
 
 
 void ft_putchar(char ch)
-{
-    write(1, &ch, 1);
+{	
+	ssize_t ret;
+    
+	ret = write(1, &ch, 1);
+	if (ret == -1)
+		perror("ERROR : write!");
 }
 
 void ft_putstr (char *str)

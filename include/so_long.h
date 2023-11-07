@@ -6,11 +6,8 @@
 # include "../mlx/mlx.h"
 # include "../mlx/mlx_int.h"
 #include <X11/keysym.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
+
 # include <errno.h> 
-# include <fcntl.h>
 # include <aio.h>
 
 # ifndef BUFFER_SIZE
@@ -38,6 +35,12 @@ typedef struct s_mlx_data
 {
     void	*mlx_ptr;
     void	*win_ptr;
+	void	*img_pl_front;
+	void	*img_col;
+	void	*img_exit_close;
+	void	*img_exit_open;
+	void	*img_wall;
+	void	*img_ground;
 }               t_mlx_data;
 
 // errorhandling.c
