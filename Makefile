@@ -17,10 +17,11 @@ SRC  = 	errorhandling.c \
 	maps_2_check_map.c \
 	maps_3_check_playable.c \
 	maps_100_utiles.c \
+	screen_1_win_setting.c \
+	screen_2_img_setting.c \
 	utiles_1.c \
 	utiles_2.c \
-	utiles_3.c \
-	window_1_setting.c 
+	utiles_3.c 
 
 SRCS	= $(addprefix $(SRC_PATH), $(SRC))
 OBJ		= $(SRC:.c=.o)

@@ -41,11 +41,17 @@ typedef struct s_mlx_data
 	void	*img_exit_open;
 	void	*img_wall;
 	void	*img_ground;
+	void	*img_floor;
+	char	**map;
+	unsigned int pl_x_pos;
+	unsigned int pl_y_pos;
 }               t_mlx_data;
 
 // errorhandling.c
 void ft_throw_error (char *str);
 void ft_throw_map_error(t_lay **map, int err_num);
+void ft_error_map_data(t_lay **map, int err_num, t_mlx_data **data);
+void ft_destoy_screen_free_data(t_mlx_data **data);
 void ft_free_map_struct(t_lay **map);
 
 // ft_printf_1.c
@@ -80,6 +86,12 @@ void ft_read_map_sruct(int file_discripter, t_lay **map);
 void ft_print_out_map(t_lay *map);
 t_lay *copy_t_lay (t_lay *src);
 
+// screen_1_win_setting.c 
+int ft_window_setting(t_lay **map, t_positon **pos);
+
+// screen_2_img_setting.c 
+int ft_init_image(t_mlx_data **list);
+int ft_destroy_image(t_mlx_data **list);
 
 // utiles_1.c
 void ft_putchar(char ch);
@@ -96,8 +108,7 @@ char	*ft_substr(char *storage, unsigned int start, unsigned int len);
 // utiles_3.c 
 char	*ft_free_str(char **str);
 
-// window_1_setting.c 
-int ft_window_setting(void);
+
 
 
 #endif

@@ -37,6 +37,26 @@ void ft_throw_map_error(t_lay **map, int err_num)
       ft_throw_error("!!!THROW A MAP ERROR WITHOUT A CORRECT NUMMBER!!!");
 }
 
+void ft_error_map_data(t_lay **map, int err_num, t_mlx_data **data)
+{
+   ft_free_map_struct(map);
+   ft_destoy_screen_free_data(data);
+   if (err_num == 410)
+      ft_throw_error("ERROR : Could not init windows or display ptr!\n");
+   if (err_num == 410)
+      ft_throw_error("ERROR : Could not load images!\n");
+
+}
+
+void ft_destoy_screen_free_data(t_mlx_data **data)
+{
+   ft_destroy_image(data);
+   mlx_destroy_window((*data)->mlx_ptr, (*data)->win_ptr);
+   mlx_destroy_display((*data)->mlx_ptr);
+   free((*data)->mlx_ptr);
+   free(*data);
+}
+
 void ft_free_map_struct(t_lay **map)
 {
     int i_count = 0;

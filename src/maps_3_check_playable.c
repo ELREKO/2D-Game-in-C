@@ -32,9 +32,10 @@ t_positon *ft_check_payable(t_lay **map)
     return (player_pos);
 }
 
+// Check if the given map compatible with the screen_size
 static int ft_sreen_size (t_lay **map)
 {
-    Display *display = XOpenDisplay(NULL);
+    Display *display;
     Screen *screen = DefaultScreenOfDisplay(display);
     unsigned int screen_widt;
     unsigned int screen_height;
@@ -45,7 +46,7 @@ static int ft_sreen_size (t_lay **map)
     screen_height = HeightOfScreen(screen);
     if (((*map)->i_x * 50) > (screen_widt-150))
         ft_throw_map_error(map, 310);
-    if (((*map)->i_y * 50) > (screen_height -150))
+    if (((*map)->i_y * 50) > (screen_height-150))
         ft_throw_map_error(map, 320);
     XCloseDisplay(display);
     return 0;
