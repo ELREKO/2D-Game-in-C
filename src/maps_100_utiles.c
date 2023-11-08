@@ -18,6 +18,7 @@ t_lay *ft_creat_map_set_size(int file_discripter)
     map->i_exit = 0;
     map->i_collect = 0;
     map->map = NULL;
+    int i_count = 0;
     while (str_line != NULL)
     {
         free(str_line);
@@ -25,10 +26,12 @@ t_lay *ft_creat_map_set_size(int file_discripter)
         str_line = get_next_line(file_discripter);
         if ((str_line != NULL) && (map->i_x != ft_strlen(str_line)))
         {
+            printf("LINE %i -- %i -- %i -- %s\n", i_count, ft_strlen(str_line),map->i_x, str_line);
             ft_free_str(&str_line);
             ft_throw_map_error(&map, 30);
         }
         map->i_y = map->i_y + 1;
+        i_count++;
     }
 
     ft_free_str(&str_line);

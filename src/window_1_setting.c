@@ -36,7 +36,7 @@ int ft_window_setting(void)
     mlx_key_hook(data.win_ptr, handle_input, &data);
     mlx_hook(data.win_ptr, 17, 0, ft_close_window, &data);
 
-    data.img_wall = mlx_xpm_file_to_image(data.mlx_ptr, "img/wall.xpm", &w, &h  );
+    data.img_wall = mlx_xpm_file_to_image(data.mlx_ptr, "img/exit_close.xpm", &w, &h  );
     if (!data.img_wall)
         ft_throw_error("Fuck bild konnte nicht geladen werden!");
     

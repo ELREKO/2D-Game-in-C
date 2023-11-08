@@ -2,6 +2,7 @@
 
 static t_positon *ft_find_player_position(t_lay **map);
 static void	flood_fill_me(t_lay **map, t_positon begin, char ch);
+static int ft_sreen_size (t_lay **map);
 //int	flood_fill(char **tab, t_positon size, t_positon begin);
 
 // return the player Position
@@ -12,6 +13,8 @@ t_positon *ft_check_payable(t_lay **map)
 
     player_pos = ft_find_player_position(map);
     map_copy = copy_t_lay(*map);
+    ft_sreen_size(map);
+
     //ft_print_out_map(map_copy);
     flood_fill_me(&map_copy, *player_pos, 'V');
     //ft_print_out_map(map_copy);
@@ -27,6 +30,29 @@ t_positon *ft_check_payable(t_lay **map)
     
 
     return (player_pos);
+}
+
+static int ft_sreen_size (t_lay **map)
+{
+    Display *display = XOpenDisplay(NULL);
+    Screen *screen = DefaultScreenOfDisplay(display);
+    unsigned int screen_widt;
+    unsigned int screen_height;
+
+    display = XOpenDisplay(NULL);
+    screen = DefaultScreenOfDisplay(display);
+    screen_widt = WidthOfScreen(screen);
+    screen_height = HeightOfScreen(screen);
+        printf("Bildschirmauflösung: %dx%d -- %d > %d?\n", screen_widt, screen_height,((*map)->i_x ),(screen_widt-150) );
+
+    if (((*map)->i_x * 50) > (screen_widt-150))
+        ft_throw_map_error(map, 310);
+    if (((*map)->i_y * 50) > (screen_height -150))
+        ft_throw_map_error(map, 320);
+
+    printf("Bildschirmauflösung: %dx%d -- %d > %d?\n", screen_widt, screen_height,((*map)->i_x * 50),(screen_widt-150) );
+    XCloseDisplay(display);
+    return 0;
 }
 
 static t_positon *ft_find_player_position(t_lay **map)
