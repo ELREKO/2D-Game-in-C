@@ -43,14 +43,10 @@ static int ft_sreen_size (t_lay **map)
     screen = DefaultScreenOfDisplay(display);
     screen_widt = WidthOfScreen(screen);
     screen_height = HeightOfScreen(screen);
-        printf("Bildschirmauflösung: %dx%d -- %d > %d?\n", screen_widt, screen_height,((*map)->i_x ),(screen_widt-150) );
-
     if (((*map)->i_x * 50) > (screen_widt-150))
         ft_throw_map_error(map, 310);
     if (((*map)->i_y * 50) > (screen_height -150))
         ft_throw_map_error(map, 320);
-
-    printf("Bildschirmauflösung: %dx%d -- %d > %d?\n", screen_widt, screen_height,((*map)->i_x * 50),(screen_widt-150) );
     XCloseDisplay(display);
     return 0;
 }
