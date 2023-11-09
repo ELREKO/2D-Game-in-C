@@ -20,6 +20,8 @@ typedef struct s_lay
 	char **map;
 	unsigned int i_x;
 	unsigned int i_y;
+	unsigned int screen_width;
+	unsigned int screen_hight;
 	int	i_exit;
 	int	i_pl;
 	int	i_collect;
@@ -41,8 +43,10 @@ typedef struct s_mlx_data
 	void	*img_wall;
 	void	*img_ground;
 	void	*img_floor;
+	void	*img_enemy;
 	unsigned int step_count;
 	int		win_close;
+	int		bock_key;
 	t_lay	*map;
 	t_positon *pos;
 	
@@ -92,6 +96,7 @@ int ft_window_setting(t_lay **map, t_positon **pos);
 void ft_put_image_to_window(t_mlx_data **data);
 void ft_check_exit(t_mlx_data **data);
 int ft_close_window(t_mlx_data **data);
+void ft_enemy_animaiton(t_mlx_data **data);
 
 // screen_2_img_setting.c 
 int ft_init_image(t_mlx_data **list);

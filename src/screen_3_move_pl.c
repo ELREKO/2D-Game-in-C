@@ -10,7 +10,9 @@ void  ft_move_left(t_mlx_data **data)
 
     steps = -1;
     ch_tmp = (*data)->map->map[(*data)->pos->y][((*data)->pos->x) + steps];
-    if (ch_tmp == 'E' && (*data)->map->i_collect <= 0)
+    if (ch_tmp == 'G')
+        ft_enemy_animaiton(data);
+    else if (ch_tmp == 'E' && (*data)->map->i_collect <= 0)
     {
         ft_move_horizontal(data, steps, ch_tmp);
         ft_close_window(data);
@@ -26,6 +28,8 @@ void  ft_move_right(t_mlx_data **data)
 
     steps = 1;
     ch_tmp = (*data)->map->map[(*data)->pos->y][((*data)->pos->x) + steps];
+    if (ch_tmp == 'G')
+        ft_enemy_animaiton(data);
     if (ch_tmp == 'E' && (*data)->map->i_collect <= 0)
     {
         ft_move_horizontal(data, steps, ch_tmp);
@@ -56,6 +60,8 @@ void  ft_move_down(t_mlx_data **data)
 
     steps = -1;
     ch_tmp = (*data)->map->map[(*data)->pos->y - steps][(*data)->pos->x];
+    if (ch_tmp == 'G')
+        ft_enemy_animaiton(data);
     if (ch_tmp == 'E' && (*data)->map->i_collect <= 0)
     {
         ft_move_vertical(data, steps, ch_tmp);
@@ -72,6 +78,8 @@ void  ft_move_up(t_mlx_data **data)
 
     steps = 1;
     ch_tmp = (*data)->map->map[(*data)->pos->y - steps][(*data)->pos->x];
+    if (ch_tmp == 'G')
+        ft_enemy_animaiton(data);
     if (ch_tmp == 'E' && (*data)->map->i_collect <= 0)
     {
         ft_move_vertical(data, steps, ch_tmp);

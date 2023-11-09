@@ -4,7 +4,7 @@ INC=%%%%
 
 INCLIB=$(INC)/lib
 
-CC		= gcc
+CC		= cc
 CFLAGS	= -Wall -Wextra -I$(INC) -O3 -I -g
 
 SRC_PATH = src/
@@ -15,10 +15,10 @@ SRC  = 	errorhandling.c \
 	main.c \
 	maps_1_read.c \
 	maps_2_check_map.c \
-	maps_3_check_playable.c \
 	maps_100_utiles.c \
 	screen_1_win_setting.c \
 	screen_2_img_setting.c \
+	maps_3_check_playable.c \
 	screen_3_move_pl.c \
 	utiles_1.c \
 	utiles_2.c \
@@ -30,7 +30,6 @@ OBJ		= $(SRC:.c=.o)
 OBJS	= $(addprefix $(OBJ_PATH), $(OBJ))
 INCS	= -I ./includes/
 LIB		= -Lmlx -lmlx -L../$(INCLIB) -lXext -lX11 -lm
-
 
 all: $(OBJ_PATH) $(NAME)
 

@@ -37,16 +37,14 @@ static int ft_sreen_size (t_lay **map)
 {
     Display *display;
     Screen *screen = DefaultScreenOfDisplay(display);
-    unsigned int screen_widt;
-    unsigned int screen_height;
 
     display = XOpenDisplay(NULL);
     screen = DefaultScreenOfDisplay(display);
-    screen_widt = WidthOfScreen(screen);
-    screen_height = HeightOfScreen(screen);
-    if (((*map)->i_x * 50) > (screen_widt-150))
+    (*map)->screen_width = WidthOfScreen(screen);
+    (*map)->screen_hight = HeightOfScreen(screen);
+    if (((*map)->i_x * 50) > ((*map)->screen_width - 150))
         ft_throw_map_error(map, 310);
-    if (((*map)->i_y * 50) > (screen_height-150))
+    if (((*map)->i_y * 50) > ((*map)->screen_hight - 150))
         ft_throw_map_error(map, 320);
     XCloseDisplay(display);
     return 0;

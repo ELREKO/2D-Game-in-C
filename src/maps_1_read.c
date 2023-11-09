@@ -28,7 +28,7 @@ t_lay *ft_load_map(char *filename)
 static int ft_open_maps(char *filename)
 {
     int file_discripter;
-    
+
     if (!(ft_check_filename_ber(filename)))
         ft_throw_error("ERROR: Map ending must be *.ber\n");
     file_discripter = open(filename, O_RDONLY);
@@ -43,7 +43,7 @@ static int ft_open_maps(char *filename)
 static void ft_close_map (int file_discripter)
 {
     int i_res;
-
+    
     i_res = close(file_discripter);
     if (i_res < 0)
     {

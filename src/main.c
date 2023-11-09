@@ -9,7 +9,12 @@ int main(int argc, char **arg)
     else if (argc > 2)
         ft_throw_error("ERROR: To many Arguments! Please only one Map!\n");
     else
-        progamm_struckt(arg[1]);
+    {
+        if (ft_strlen(arg[1]) > 6)
+            progamm_struckt(arg[1]);
+        else
+            ft_throw_error("ERROR : Map must have *.ber!\n");
+    }
     return (0); 
 }
 
