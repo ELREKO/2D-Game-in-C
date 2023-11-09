@@ -37,14 +37,15 @@ typedef struct s_mlx_data
     void	*win_ptr;
 	void	*img_pl_front;
 	void	*img_col;
-	void	*img_exit_close;
-	void	*img_exit_open;
+	void	*img_exit;
 	void	*img_wall;
 	void	*img_ground;
 	void	*img_floor;
-	char	**map;
-	unsigned int pl_x_pos;
-	unsigned int pl_y_pos;
+	unsigned int step_count;
+	int		win_close;
+	t_lay	*map;
+	t_positon *pos;
+	
 }               t_mlx_data;
 
 // errorhandling.c
@@ -88,10 +89,19 @@ t_lay *copy_t_lay (t_lay *src);
 
 // screen_1_win_setting.c 
 int ft_window_setting(t_lay **map, t_positon **pos);
+void ft_put_image_to_window(t_mlx_data **data);
+void ft_check_exit(t_mlx_data **data);
+int ft_close_window(t_mlx_data **data);
 
 // screen_2_img_setting.c 
 int ft_init_image(t_mlx_data **list);
 int ft_destroy_image(t_mlx_data **list);
+
+// screen_3_move_pl.c
+void  ft_move_left(t_mlx_data **data);
+void  ft_move_right(t_mlx_data **data);
+void  ft_move_up(t_mlx_data **data);
+void  ft_move_down(t_mlx_data **data);
 
 // utiles_1.c
 void ft_putchar(char ch);
@@ -107,6 +117,9 @@ char	*ft_substr(char *storage, unsigned int start, unsigned int len);
 
 // utiles_3.c 
 char	*ft_free_str(char **str);
+
+// utiles_4_ft_itoa.c
+char	*ft_itoa(int n);
 
 
 

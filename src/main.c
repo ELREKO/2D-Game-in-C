@@ -22,7 +22,6 @@ static void progamm_struckt (char *filename)
 
     map = ft_load_map(filename);
     ft_map_controll(&map);
-    printf(" BEFOR \n x=|%u|, y=|%u|, pl=|%i| ex=|%i| col=|%i|\n", map->i_x , map->i_y, map->i_pl,map->i_exit, map->i_collect);
 
     player_pos = ft_check_payable(&map);
     ft_window_setting(&map, &player_pos);

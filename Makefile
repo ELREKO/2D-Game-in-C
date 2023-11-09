@@ -19,9 +19,11 @@ SRC  = 	errorhandling.c \
 	maps_100_utiles.c \
 	screen_1_win_setting.c \
 	screen_2_img_setting.c \
+	screen_3_move_pl.c \
 	utiles_1.c \
 	utiles_2.c \
-	utiles_3.c 
+	utiles_3.c \
+	utiles_4_ft_itoa.c
 
 SRCS	= $(addprefix $(SRC_PATH), $(SRC))
 OBJ		= $(SRC:.c=.o)
