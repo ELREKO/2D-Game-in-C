@@ -15,6 +15,8 @@ void ft_throw_map_error(t_lay **map, int err_num)
       ft_throw_error("ERROR : Malloc map error *map size\n");
    else if (err_num == 30)
       ft_throw_error("ERROR : Map isn't rectangle\n");
+   else if (err_num == 90)
+      ft_throw_error("ERROR : Not allowed char in the map!\n");
    else if (err_num == 100)
       ft_throw_error("ERROR : Wall is open\n");
    else if (err_num == 210)

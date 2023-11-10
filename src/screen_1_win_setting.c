@@ -65,8 +65,6 @@ void ft_put_image_to_window(t_mlx_data **data)
                 mlx_put_image_to_window((*data)->mlx_ptr, (*data)->win_ptr,(*data)->img_col,(i_x * 50), (i_y * 50) );
             if ((*data)->map->map[i_y][i_x] == 'E')
                 mlx_put_image_to_window((*data)->mlx_ptr, (*data)->win_ptr,(*data)->img_exit,(i_x * 50), (i_y * 50) );
-            if ((*data)->map->map[i_y][i_x] == 'G')
-                mlx_put_image_to_window((*data)->mlx_ptr, (*data)->win_ptr,(*data)->img_enemy,(i_x * 50), (i_y * 50) );
             i_x++;
         }
         i_y++;
@@ -97,35 +95,23 @@ static int	handle_input(int keysym, t_mlx_data **data)
     {
         if (keysym == XK_Escape)
             ft_close_window(data);
-        if (keysym == XK_Left || keysym == XK_a)
-            ft_move_left(data);
-        if (keysym == XK_Right || keysym == XK_d)
-            ft_move_right(data);
-        if (keysym == XK_Up || keysym == XK_w)
-            ft_move_up(data);
-        if (keysym == XK_Down || keysym == XK_s)
-            ft_move_down(data);
-        ft_print_count_steps(data);
+        if ( keysym == XK_Left || keysym == XK_a || 
+            keysym == XK_Right || keysym == XK_d ||
+            keysym == XK_Up || keysym == XK_w ||
+            keysym == XK_Down || keysym == XK_s)
+        {
+            if (keysym == XK_Left || keysym == XK_a)
+                ft_move_left(data);
+            if (keysym == XK_Right || keysym == XK_d)
+                ft_move_right(data);
+            if (keysym == XK_Up || keysym == XK_w)
+                ft_move_up(data);
+            if (keysym == XK_Down || keysym == XK_s)
+                ft_move_down(data);
+            ft_print_count_steps(data);
+        }
     }
     return (0);
-}
-
-void draw_black_rectangle(void *mlx_ptr, void *win_ptr, int width, int height)
-{
-    int x = 0;
-    int y = 0;
-    int color = 0x000000; // Schwarz
-
-    while (y < height)
-    {
-        x = 0;
-        while (x < width)
-        {
-            mlx_pixel_put(mlx_ptr, win_ptr, x, y, color);
-            x++;
-        }
-        y++;
-    }
 }
 
 static void ft_print_count_steps(t_mlx_data **data)
@@ -143,8 +129,6 @@ static void ft_print_count_steps(t_mlx_data **data)
         if ((*data)->win_close)
             ft_putstr(" Total");
         ft_putstr(" steps\n");
-        draw_black_rectangle((*data)->mlx_ptr,(*data)->win_ptr,30,20);
-        mlx_string_put((*data)->mlx_ptr,(*data)->win_ptr,5,15,0xfc0303 ,str);
         free(str);
     }
     else
@@ -162,31 +146,3 @@ int ft_close_window(t_mlx_data **data)
     return (0);
 }
 
-void ft_enemy_animaiton(t_mlx_data **data)
-{
-    int w;
-    int h;
-
-    (*data)->bock_key = 1;
-    mlx_clear_window((*data)->mlx_ptr, (*data)->win_ptr);
-    (*data)->img_enemy = mlx_xpm_file_to_image((*data)->mlx_ptr, "img/boom1.xpm", &w, &h);
-    mlx_put_image_to_window((*data)->mlx_ptr, (*data)->win_ptr,(*data)->img_enemy, 20, 20);
-
-    (*data)->img_enemy = mlx_xpm_file_to_image((*data)->mlx_ptr, "img/boom2.xpm", &w, &h);
-    mlx_put_image_to_window((*data)->mlx_ptr, (*data)->win_ptr,(*data)->img_enemy, 20, 20);
-    sleep(1);
-    (*data)->img_enemy = mlx_xpm_file_to_image((*data)->mlx_ptr, "img/boom3.xpm", &w, &h);
-    mlx_put_image_to_window((*data)->mlx_ptr, (*data)->win_ptr,(*data)->img_enemy, 20, 20);
-    sleep(1);
-    (*data)->img_enemy = mlx_xpm_file_to_image((*data)->mlx_ptr, "img/boom4.xpm", &w, &h);
-    mlx_put_image_to_window((*data)->mlx_ptr, (*data)->win_ptr,(*data)->img_enemy, 20, 20);
-    sleep(1);
-    (*data)->img_enemy = mlx_xpm_file_to_image((*data)->mlx_ptr, "img/boom5.xpm", &w, &h);
-    mlx_put_image_to_window((*data)->mlx_ptr, (*data)->win_ptr,(*data)->img_enemy, 20, 20);
-    sleep(1);
-    (*data)->img_enemy = mlx_xpm_file_to_image((*data)->mlx_ptr, "img/boom6.xpm", &w, &h);
-    mlx_put_image_to_window((*data)->mlx_ptr, (*data)->win_ptr,(*data)->img_enemy, 20, 20);
-    sleep(1);
-    mlx_clear_window((*data)->mlx_ptr, (*data)->win_ptr);
-    ft_close_window(data);
-}

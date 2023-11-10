@@ -12,7 +12,6 @@ int ft_init_image(t_mlx_data **list)
     (*list)->img_col = mlx_xpm_file_to_image((*list)->mlx_ptr, "img/collect.xpm", &width, &hight );
     (*list)->img_pl_front = mlx_xpm_file_to_image((*list)->mlx_ptr, "img/player.xpm", &width, &hight );
     (*list)->img_exit = mlx_xpm_file_to_image((*list)->mlx_ptr, "img/exit_close.xpm", &width, &hight );
-    (*list)->img_enemy = mlx_xpm_file_to_image((*list)->mlx_ptr, "img/enemy.xpm", &width, &hight );
     if (!((*list)->img_wall ) ||
         !((*list)->img_floor) ||
         !((*list)->img_col) ||
@@ -29,6 +28,5 @@ int ft_destroy_image(t_mlx_data **list)
     mlx_destroy_image((*list)->mlx_ptr, (*list)->img_col);
     mlx_destroy_image((*list)->mlx_ptr, (*list)->img_pl_front);
     mlx_destroy_image((*list)->mlx_ptr, (*list)->img_exit);
-    mlx_destroy_image((*list)->mlx_ptr, (*list)->img_enemy);
     return (0);
 }

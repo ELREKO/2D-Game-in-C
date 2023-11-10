@@ -2,7 +2,7 @@
 
 static int ft_check_wall_first_last_row(char *str);
 static int ft_check_wall_middel(char *str);
-static void ft_count_equiment(t_lay **map, char *str);
+static int ft_count_equiment(t_lay **map, char *str);
 static void ft_check_sum_of_equiment(t_lay **map);
 
 int ft_map_controll(t_lay **map)
@@ -20,7 +20,8 @@ int ft_map_controll(t_lay **map)
         }
         else
         {
-            ft_count_equiment(map,((*map)->map[i_count]));
+            if (!(ft_count_equiment(map,(*map)->map[i_count])))
+                ft_throw_map_error(map, 90);
             if (!(ft_check_wall_middel((*map)->map[i_count])))
                 ft_throw_map_error(map, 100);
         }
@@ -57,22 +58,31 @@ static int ft_check_wall_middel(char *str)
 }
 
 // Count Player // Count Collectables //Count exit 
-static void ft_count_equiment(t_lay **map, char *str)
+static int ft_count_equiment(t_lay **map, char *str)
 {
     int i_count; 
 
     i_count = 0;
     while (str[i_count] != '\0')
     {
-        //printf("\n|%c|---icount |%i|\n", str[i_count], i_count);
-        if (str[i_count] == 'P')
-            (*map)->i_pl = (*map)->i_pl + 1; 
-        else if (str[i_count] == 'C')
-            (*map)->i_collect = (*map)->i_collect + 1; 
-        else if (str[i_count] == 'E')
-            (*map)->i_exit = (*map)->i_exit + 1;
-        i_count++;
-    } 
+        if (str[i_count] == '1' || 
+            str[i_count] == '0' || 
+            str[i_count] == 'E' || 
+            str[i_count] == 'P' ||
+            str[i_count] == 'C')
+        {
+            if (str[i_count] == 'P')
+                (*map)->i_pl = (*map)->i_pl + 1; 
+            else if (str[i_count] == 'C')
+                (*map)->i_collect = (*map)->i_collect + 1; 
+            else if (str[i_count] == 'E')
+                (*map)->i_exit = (*map)->i_exit + 1;
+            i_count++;
+        }
+        else
+            return (0);
+    }
+    return (1);
 }
 
 static void ft_check_sum_of_equiment(t_lay **map)
