@@ -15,11 +15,15 @@ SRC  = 	errorhandling.c \
 	main.c \
 	maps_1_read.c \
 	maps_2_check_map.c \
-	maps_100_utiles.c \
-	screen_1_win_setting.c \
-	screen_2_img_setting.c \
 	maps_3_check_playable.c \
-	screen_3_move_pl.c \
+	maps_100_utiles.c \
+	maps_101_utiles.c \
+	screen_1_win_setting.c \
+	screen_2_win_function.c \
+	screen_3_img_setting.c \
+	screen_4_move_pl_horizontal.c \
+	screen_4_move_pl_vertical.c \
+	screen_5_boom_animation.c \
 	utiles_1.c \
 	utiles_2.c \
 	utiles_3.c \

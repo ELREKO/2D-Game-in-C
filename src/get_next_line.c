@@ -1,9 +1,19 @@
-# include "../include/so_long.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rkost <rkost@student.42berlin.de>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/10 11:37:03 by rkost             #+#    #+#             */
+/*   Updated: 2023/11/10 11:41:25 by rkost            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+#include "../include/so_long.h"
 
 static char	*ft_clean_storage(char *storage);
 static char	*ft_readbuf(int fd, char *storage);
 static char	*ft_new_line(char *storage);
-
 
 char	*get_next_line(int fd)
 {
@@ -48,9 +58,9 @@ static char	*ft_clean_storage(char *storage)
 
 static char	*ft_new_line(char *storage)
 {
-	char	*line;
-	char	*ptr;
-	unsigned int len;
+	unsigned int	len;
+	char			*line;
+	char			*ptr;
 
 	ptr = ft_chrinstr(storage, '\n');
 	len = (ptr - storage) + 1;

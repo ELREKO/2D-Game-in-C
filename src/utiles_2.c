@@ -1,10 +1,21 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utiles_2.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rkost <rkost@student.42berlin.de>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/10 16:43:14 by rkost             #+#    #+#             */
+/*   Updated: 2023/11/10 16:44:28 by rkost            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "../include/so_long.h"
 
 char	*ft_strjoin(char *str1, char *str2)
 {
-	char	*str_ret;
-	unsigned int i_count_str1;
-	unsigned int i_count_str2;
+	char			*str_ret;
+	unsigned int	i_count_str1;
+	unsigned int	i_count_str2;
 
 	if (!str1)
 	{
@@ -57,8 +68,8 @@ char	*ft_chrinstr(char *str, int chr)
 
 char	*ft_substr(char *storage, unsigned int start, unsigned int len)
 {
-	unsigned int 	i_count;
-	char	*str_ret;
+	unsigned int	i_count;
+	char			*str_ret;
 
 	i_count = 0;
 	if (!storage)
