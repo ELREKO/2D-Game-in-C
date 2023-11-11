@@ -6,7 +6,7 @@
 /*   By: rkost <rkost@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 16:37:40 by rkost             #+#    #+#             */
-/*   Updated: 2023/11/10 16:37:58 by rkost            ###   ########.fr       */
+/*   Updated: 2023/11/11 12:52:40 by rkost            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/so_long.h"
@@ -40,6 +40,7 @@ static	void	init_image_boom(t_mlx_data **data)
 			"img/boom2.xpm", &w, &h);
 	mlx_put_image_to_window((*data)->mlx_ptr, (*data)->win_ptr,
 		(*data)->img_boom2, 20, 20);
+	usleep(300000);
 	(*data)->img_boom3 = mlx_xpm_file_to_image((*data)->mlx_ptr,
 			"img/boom3.xpm", &w, &h);
 	mlx_put_image_to_window((*data)->mlx_ptr, (*data)->win_ptr,
@@ -48,6 +49,7 @@ static	void	init_image_boom(t_mlx_data **data)
 			"img/boom4.xpm", &w, &h);
 	mlx_put_image_to_window((*data)->mlx_ptr, (*data)->win_ptr,
 		(*data)->img_boom4, 20, 20);
+	usleep(300000);
 	(*data)->img_boom5 = mlx_xpm_file_to_image((*data)->mlx_ptr,
 			"img/boom5.xpm", &w, &h);
 	mlx_put_image_to_window((*data)->mlx_ptr, (*data)->win_ptr,

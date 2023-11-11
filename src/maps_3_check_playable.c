@@ -6,7 +6,7 @@
 /*   By: rkost <rkost@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 13:04:04 by rkost             #+#    #+#             */
-/*   Updated: 2023/11/10 13:17:38 by rkost            ###   ########.fr       */
+/*   Updated: 2023/11/11 12:55:44 by rkost            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/so_long.h"
@@ -88,10 +88,10 @@ static	t_positon	*ft_find_player_position(t_lay **map)
 static	void	flood_fill_me(t_lay **map, t_positon begin, char to_Fill)
 {
 	if (begin.y < 1 || begin.y >= (*map)->i_y
-			|| begin.x < 1 || begin.x >= (*map)->i_x
-			|| (*map)->map[begin.y][begin.x] == '1'
-			|| (*map)->map[begin.y][begin.x] == to_Fill
-			|| (*map)->map[begin.y][begin.x] == 'G')
+		|| begin.x < 1 || begin.x >= (*map)->i_x
+		|| (*map)->map[begin.y][begin.x] == '1'
+		|| (*map)->map[begin.y][begin.x] == to_Fill
+		|| (*map)->map[begin.y][begin.x] == 'G')
 		return ;
 	if ((*map)->map[begin.y][begin.x] == 'E')
 	{
