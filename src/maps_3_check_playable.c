@@ -87,13 +87,17 @@ static	t_positon	*ft_find_player_position(t_lay **map)
 
 static	void	flood_fill_me(t_lay **map, t_positon begin, char to_Fill)
 {
-	if ((*map)->map[begin.y][begin.x] == to_Fill || begin.y < 1
-			|| begin.y >= (*map)->i_y
+	if (begin.y < 1 || begin.y >= (*map)->i_y
 			|| begin.x < 1 || begin.x >= (*map)->i_x
-			|| (*map)->map[begin.y][begin.x] == '1')
+			|| (*map)->map[begin.y][begin.x] == '1'
+			|| (*map)->map[begin.y][begin.x] == to_Fill
+			|| (*map)->map[begin.y][begin.x] == 'G')
 		return ;
 	if ((*map)->map[begin.y][begin.x] == 'E')
+	{
 		(*map)->i_exit = (*map)->i_exit - 1;
+		return ;
+	}
 	else if ((*map)->map[begin.y][begin.x] == 'C')
 		(*map)->i_collect = (*map)->i_collect - 1;
 	(*map)->map[begin.y][begin.x] = to_Fill;

@@ -49,11 +49,11 @@ static	void	ft_error_send(int err_num)
 	else if (err_num == 250)
 		ft_throw_error("ERROR : Exit more than 1\n");
 	else if (err_num == 300)
-		ft_throw_error("ERROR : Not playable code not reach all steps"); 
+		ft_throw_error("ERROR : Not playable code not reach all steps\n"); 
 	else if (err_num == 310)
 		ft_throw_error("ERROR : Not playable map is to big for screen\n");
 	else
-		ft_throw_error("!!!THROW A MAP ERROR WITHOUT A CORRECT NUMMBER!!!");
+		ft_throw_error("!!!THROW A MAP ERROR WITHOUT A CORRECT NUMMBER!!!\n");
 }
 
 void	ft_error_map_data(t_lay **map, int err_num, t_mlx_data **data)
