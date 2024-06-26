@@ -71,8 +71,5 @@ Here's an example with alternative graphic objects.
 ### Controls
 Use `WASD` to move. You move one tile at a time. Enemies move after you, also one tile at a time, and will kill you if you move into their tile or they move into yours. After collecting all collectibles, exits open, and you can exit to see how many moves you've used to solve the map. You can close the game with `Esc`.
 
-### Contact Information
-If you have questions, suggestions, or feedback, please contact me via email or Xing. Feedback is always welcome =D
-
 ### Contributors
 If you'd like to contribute and improve this project, you can fork this repository and submit a pull request with your changes. I'll be happy to review and accept your changes.
