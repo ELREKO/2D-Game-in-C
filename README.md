@@ -20,7 +20,7 @@ Before compiling the project, the MLX library must be installed. Instructions ca
 To clone this project along with this library, use the following command:
 
 ```shell
-git clone https://github.com/andersonhsporto/ft-so_long.git
+git clone https://github.com/ELREKO/2D-Game-in-C.git
 ```
 Navigate into the cloned directory.
 Install the game:
