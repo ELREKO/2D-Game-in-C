@@ -25,7 +25,7 @@ git clone https://github.com/ELREKO/2D-Game-in-C.git
 Navigate into the cloned directory.
 Install the game:
 ```shell
-make
+make re
 ```
 
 #### Uninstallation
