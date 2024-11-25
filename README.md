@@ -1,13 +1,10 @@
-![original](doc/pic/orginal.png)
+![original](doc/pic/output.gif)
 
-# 2D Game in C ([so_long](doc/PDF/so_long_subject.pdf))
+# 2D Game in C
 
 ## Description
-Project of the Common Core Curriculum at 42 School. The goal is to create a proof of concept of a 2D game using the MinilibX graphics library and the ANSI C programming language.
 
-This project is a simple game where the player must collect all items on the map and reach the exit. The player can only move horizontally and vertically. The map consists of walls, empty spaces, collectible items, and the exit. The player loses if they collide with an enemy.
-
-This project is for educational purposes and can be used as desired.
+This project is a simple game where the player must collect all items on the map and reach the exit. The player can only move horizontally and vertically. The map consists of walls, empty spaces, collectible items, and the exit. The player loses if they collide with an enemy. The goal is to create a proof of concept of a 2D game using the MinilibX graphics library and the ANSI C programming language.
 
 ### MLX
 MinilibX is a simple X-Window programming API in C designed for students and suitable for beginners.
@@ -20,7 +17,7 @@ Before compiling the project, the MLX library must be installed. Instructions ca
 To clone this project along with this library, use the following command:
 
 ```shell
-git clone https://github.com/ELREKO/2D-Game-in-C.git
+git clone https://github.com/ELREKO/2D-Game.git
 ```
 Navigate into the cloned directory.
 Install the game:
@@ -40,7 +37,7 @@ After compiling the project, an executable file named `so_long` will be created.
 
 Example:
 ```shell
-./so_long 42big.ber
+./so_long maps/42big.ber
 ```
 Some maps and the map used to create the header image are located in the `maps` folder.
 
@@ -60,13 +57,13 @@ The game can play any map that follows specific rules:
 - The map must be a rectangle surrounded by walls `1`.
 - It must have at least one exit `E` and one collectible `C`, and only one player `P`.
 - See some examples in the `map_files` folder of this project. For example map2.ber
-![orginal_2](doc/pic/orginal_2.png)
+
 
 ### Changing the Graphics
 In the `img` folder, you can replace the existing `.xpm` graphic files with your own graphics. Images should be 50x50 px.
 Here's an example with alternative graphic objects.
 
-![Alternative](doc/pic/alternative.png)
+![orginal_2](doc/pic/orginal_2.png)
 
 ### Controls
 Use `WASD` to move. You move one tile at a time. Enemies move after you, also one tile at a time, and will kill you if you move into their tile or they move into yours. After collecting all collectibles, exits open, and you can exit to see how many moves you've used to solve the map. You can close the game with `Esc`.
